@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.min.js'></script>
+	<script type='text/javascript' src='./js/accelerometer.js'></script>
+
 </head>
 <body>
 Participation screen
+
+<script type="text/javascript">
+
+	var meter = new Accelerometer();
+	meter.left = function() {
+		console.log('Left');
+	}
+
+	meter.down = function() {
+		console.log('Down');
+	}
+
+</script>
+
 </body>
 </html>
