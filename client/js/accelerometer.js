@@ -25,19 +25,19 @@ Accelerometer.prototype._init = function() {
 Accelerometer.prototype._handle = function( event ) {
 
 	if( event.gamma < - this._DELTA ) {
-		this.left();
+		this.left( event.gamma );
 	}
 
 	if( event.gamma > this._DELTA ) {
-		this.right();
+		this.right( event.gamma )
 	}
 
 	if( event.beta > this._DELTA ) {
-		this.up();
+		this.up( event.beta );
 	}
 
 	if( event.beta < - this._DELTA  ) {
-		this.down();
+		this.down( event.beta );
 	}
 
 }
