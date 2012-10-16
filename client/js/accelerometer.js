@@ -13,6 +13,8 @@ function Accelerometer() {
 	// triggered threshold
 	this._DELTA = 10;
 
+	this._running = false;
+
 	this._init();
 };
 
@@ -41,13 +43,21 @@ Accelerometer.prototype._handle = function( event ) {
 }
 
 Accelerometer.prototype.start = function() {
+	if( this._running ) return -1;
+
 	var meter = this;
 	this.__eventFunction = function(data){ meter._handle( data ) };
 	window.addEventListener('deviceorientation', this.__eventFunction, false);
+
+	this._running = true;
 };
 
 Accelerometer.prototype.stop = function() {
+	if( ! this._running ) return -1;
+
 	window.removeEventListener('deviceorientation', this.__eventFunction );
+
+	this._running = false;
 }
 
 Accelerometer.prototype.up = $.noop;
