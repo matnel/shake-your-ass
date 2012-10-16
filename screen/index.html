@@ -4,28 +4,24 @@
  <meta charset=utf-8>
  <title>Shake your ass!</title>
  <link rel="stylesheet" href="ass.css">
- <script src="lib/jquery-1.8.2.min.js"></script>
- <script src="lib/d3.v2.min.js"></script>
- <script src="js/ass.js"></script>
+ <script src="lib/jquery.min.js"></script>
 </head>
 <body>
 
-<h1>Shake your ass!</h1>
+ <div id="header">SHAKE YOUR ASS!</div>
 
-<a href="/">CLICK!</a><br />
+ <canvas id="shakecanvas" width="64" height="64"></canvas>
 
-<canvas id="shakecanvas" width="64" height="64" style="border: solid 1px black;"></canvas>
+ <div class="item">testrect</div>
 
-<div class="item">asd</div>
+ <div id="footer">0 connected!</div>
 
-<style>
-.item {
-  width: 25px;
-  height: 25px;
-  background-color: red;
-}
-</style>
 
+ <script src="lib/d3.v2.min.js"></script>
+ <script src="lib/three.min.js"></script>
+ <script src="lib/Detector.js"></script>
+ <script src="lib/stats.min.js"></script>
+ <script src="js/ass.js"></script>
 </body>
 </html>
 

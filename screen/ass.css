@@ -1,0 +1,48 @@
+
+body {
+  background-color: #000000;
+  margin: 0px;
+  overflow: hidden;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size:13px;
+  text-align:center;
+  /*font-weight: bold;*/
+  text-align:center;
+}
+
+#header {
+  color:#fff;
+  position: absolute;
+  top: 0px; width: 100%;
+  padding: 10px;
+  z-index:100;
+  font-size: 200%;
+}
+
+#footer {
+  color:#fff;
+  position: absolute;
+  bottom: 0px; width: 100%;
+  padding: 5px;
+  z-index:100;
+  font-size: 150%;
+}
+
+#shakecanvas {
+  position: absolute;
+  right: 0px; top: 0px;
+  border: solid 1px black;
+  color: red;
+  z-index: 50;
+}
+
+.item {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  z-index: 51;
+  position: absolute;
+  right: 0px; top: 64px;
+  margin: 20px;
+}
+
