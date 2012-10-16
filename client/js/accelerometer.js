@@ -17,9 +17,8 @@ function Accelerometer() {
 };
 
 Accelerometer.prototype._init = function() {
-	var meter = this;
-	window.addEventListener('deviceorientation', function(data){ meter._handle( data ) }, false);
-};
+	this.start();
+}
 
 Accelerometer.prototype._handle = function( event ) {
 
@@ -41,9 +40,14 @@ Accelerometer.prototype._handle = function( event ) {
 
 }
 
+Accelerometer.prototype.start = function() {
+	var meter = this;
+	this.__eventFunction = function(data){ meter._handle( data ) };
+	window.addEventListener('deviceorientation', this.__eventFunction, false);
+};
+
 Accelerometer.prototype.stop = function() {
-	// TODO: FIXME
-	alert('Accelerometer.stop not yet implemented')
+	window.removeEventListener('deviceorientation', this.__eventFunction );
 }
 
 Accelerometer.prototype.up = $.noop;
