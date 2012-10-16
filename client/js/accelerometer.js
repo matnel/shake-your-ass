@@ -11,7 +11,9 @@
 function Accelerometer() {
 
 	// triggered threshold
-	this._DELTA = 10;
+	this.__DELTA = 10;
+
+	this.__running = false;
 
 	this._init();
 };
@@ -22,32 +24,40 @@ Accelerometer.prototype._init = function() {
 
 Accelerometer.prototype._handle = function( event ) {
 
-	if( event.gamma < - this._DELTA ) {
-		this.left();
+	if( event.gamma < - this.__DELTA ) {
+		this.left( event.gamma );
 	}
 
-	if( event.gamma > this._DELTA ) {
-		this.right();
+	if( event.gamma > this.__DELTA ) {
+		this.right( event.gamma )
 	}
 
-	if( event.beta > this._DELTA ) {
-		this.up();
+	if( event.beta > this.__DELTA ) {
+		this.up( event.beta );
 	}
 
-	if( event.beta < - this._DELTA  ) {
-		this.down();
+	if( event.beta < - this.__DELTA  ) {
+		this.down( event.beta );
 	}
 
 }
 
 Accelerometer.prototype.start = function() {
+	if( this.__running ) return -1;
+
 	var meter = this;
 	this.__eventFunction = function(data){ meter._handle( data ) };
 	window.addEventListener('deviceorientation', this.__eventFunction, false);
+
+	this.__running = true;
 };
 
 Accelerometer.prototype.stop = function() {
+	if( ! this.__running ) return -1;
+
 	window.removeEventListener('deviceorientation', this.__eventFunction );
+
+	this.__running = false;
 }
 
 Accelerometer.prototype.up = $.noop;
