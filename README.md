@@ -1,0 +1,1 @@
+Demo for WÄRKFEST 2012, demonstrating interactive and participatory experience in demo art.
