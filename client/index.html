@@ -34,7 +34,6 @@ Participation screen
 	meter.up = _y;
 
 	function data() {
-
 		var data = { x : {}, y : {} };
 
 		// copy & clean data logging
@@ -43,6 +42,7 @@ Participation screen
 		x = [];
 		y = [];
 
+		// detect values
 		data.x.min = Math.min.apply( Math, _x );
 		data.x.max = Math.max.apply( Math, _x );
 		data.x.delta = Math.abs( data.x.max - data.x.min );
@@ -51,8 +51,12 @@ Participation screen
 		data.y.max = Math.max.apply( Math, _y );
 		data.y.delta = Math.abs( data.y.max - data.y.min );
 
+		// share values
+
 		return data;
 	}
+
+	setInterval( data, 15000 );
 
 </script>
 
