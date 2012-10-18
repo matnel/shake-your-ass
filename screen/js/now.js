@@ -1,12 +1,22 @@
 var init = function() {
 
-	// add this system as the screen
-	now.screen();
-
+	// one user moved
 	now.move = function( data ) {
 		console.log('OK');
-		console.log( data );
 	}
+
+
+	// user has been removed from the system
+	now.removeUser = function( user ) {
+		console.log( 'gone' );
+	}
+
+	now.addUser = function( user ) {
+		console.log('haz');
+	}
+
+	// now.screen(); // this must be called, but at later stage
+
 }
 
 // inject now.js
