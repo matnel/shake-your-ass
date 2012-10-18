@@ -1,5 +1,12 @@
 var init = function() {
-	console.log('Ok');
+
+	// add this system as the screen
+	now.screen();
+
+	now.move = function( data ) {
+		console.log('OK');
+		console.log( data );
+	}
 }
 
 // inject now.js
