@@ -12,6 +12,7 @@ everyone.now.screen = function() {
 }
 
 everyone.now.motion = function( data ) {
+	data.user = this.user;
 	screen.now.move( data )
 }
 
