@@ -34,11 +34,14 @@ Participation screen
 	function data() {
 		var data = { x : {}, y : {} };
 
-		// copy & clean data logging
 		var _x = x;
 		var _y = y;
 		x = [];
 		y = [];
+
+		// copy & clean data logging
+		if( _x.length == 0 ) _x = [0];
+		if( _y.length == 0 ) _y = [0];
 
 		// detect values
 		data.x.min = Math.min.apply( Math, _x );
