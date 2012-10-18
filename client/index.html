@@ -6,9 +6,25 @@
 	<script type='text/javascript' src='./js/accelerometer.js'></script>
 	<script type="text/javascript" src='http://localhost:8888/nowjs/now.js'></script>
 
+	<style type="text/css">
+		.record {
+			position: absolute;
+			top: 50%;
+  			left: 50%;
+  			border-radius: 5px;
+  			-webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
+  			/*
+  			margin-top: -50%;
+  			margin-left: -50%;
+  			*/
+		}
+	</style>
+
 </head>
 <body>
-Participation screen
+
+<div id='max' class='record' style='background: pink;'></div>
+<div id='current' class='record' style='background: green;'></div>
 
 <script type="text/javascript">
 
@@ -30,6 +46,32 @@ Participation screen
 	meter.right = _x;
 	meter.right = _y;
 	meter.up = _y;
+
+	function display( d ) {
+		var w = $(window).width();
+		var h = $(window).height();
+
+		var x = d.x.delta / 180 * w;
+		var y = d.y.delta / 360 * h;
+
+		var c = $('#current');
+
+		c.css('height', y + 10 );
+		c.css('margin-top', -y / 2 -5);
+
+		c.css('width', x + 10 );
+		c.css('margin-left', -x / 2 - 5);
+
+		var c = $('#max');
+		if( y > c.height() ) {
+			c.css('height', y + 10 );
+			c.css('margin-top', -y / 2 -5);
+		}
+		if( x > c.width() ) {
+			c.css('width', x + 10 );
+			c.css('margin-left', -x / 2 - 5);
+		}
+	}
 
 	function data() {
 		var data = { x : {}, y : {} };
@@ -55,11 +97,12 @@ Participation screen
 		// share values
 
 		now.motion( data );
+		display( data );
 
 		return data;
 	}
 
-	setInterval( data, 15000 );
+	setInterval( data, 2000 );
 
 </script>
 
