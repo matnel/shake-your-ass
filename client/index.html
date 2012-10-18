@@ -4,6 +4,9 @@
 
 	<script type='text/javascript' src='./libs/jquery.js'></script>
 	<script type='text/javascript' src='./js/accelerometer.js'></script>
+<!--
+	<script type="text/javascript" src='http://localhost:8888/nowjs/now.js'></script>
+-->
 
 </head>
 <body>
@@ -12,12 +15,43 @@ Participation screen
 <script type="text/javascript">
 
 	var meter = new Accelerometer();
-	meter.left = function() {
-		$('body').html('Left');
+
+	// collect data in two lists
+	var x = [];
+	var y = [];
+
+	function _x( arg ) {
+		x.push( arg );
 	}
 
-	meter.down = function() {
-		$('body').html('Down');
+	function _y( arg ) {
+		y.push( arg );
+	}
+
+	meter.left = _x;
+	meter.right = _x;
+	meter.right = _y;
+	meter.up = _y;
+
+	function data() {
+
+		var data = { x : {}, y : {} };
+
+		// copy & clean data logging
+		var _x = x;
+		var _y = y;
+		x = [];
+		y = [];
+
+		data.x.min = Math.min.apply( Math, _x );
+		data.x.max = Math.max.apply( Math, _x );
+		data.x.delta = Math.abs( data.x.max - data.x.min );
+
+		data.y.min = Math.min.apply( Math, _y );
+		data.y.max = Math.max.apply( Math, _y );
+		data.y.delta = Math.abs( data.y.max - data.y.min );
+
+		return data;
 	}
 
 </script>
