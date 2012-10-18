@@ -4,9 +4,7 @@
 
 	<script type='text/javascript' src='./libs/jquery.js'></script>
 	<script type='text/javascript' src='./js/accelerometer.js'></script>
-<!--
 	<script type="text/javascript" src='http://localhost:8888/nowjs/now.js'></script>
--->
 
 </head>
 <body>
@@ -52,6 +50,8 @@ Participation screen
 		data.y.delta = Math.abs( data.y.max - data.y.min );
 
 		// share values
+
+		now.motion( data );
 
 		return data;
 	}
