@@ -25,6 +25,7 @@
  <script type="text/javascript">
 	var frameCounter = 0;
 	var originalTitle = 'SHAKE YOUR ASS!';
+	var color = ['pink', 'purple', 'red'];
 
 	function setCharAt(str,index,chr) {
  		if (index > str.length-1) return str;
@@ -35,7 +36,7 @@
 	var animate = function() {
   		var title = originalTitle;
   		if (frameCounter % (originalTitle.length*4) < originalTitle.length)
-  			title = setCharAt(title, frameCounter%originalTitle.length, '&hearts;');
+  			title = setCharAt(title, frameCounter%originalTitle.length, '<span style="color:' + color[ frameCounter % 3 ] + ';">&hearts;</span>');
   		$('#headerTextSpan').html(title);
   		frameCounter++;
   	}
