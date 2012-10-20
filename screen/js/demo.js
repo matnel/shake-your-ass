@@ -5,6 +5,12 @@ var _COLORS = ['#0099CC', '#0099FF', '#00CCFF'];
 var _count = 0;
 
 function Bubble() {
+
+	// add audio element
+	var x = $('<audio>', { src : './audio/alert.mp3', autoplay : true } );
+	$('body').append( x );
+
+	// add visual element
 	
 	this.element = $('<div>', { class : 'bubble' } );
 
