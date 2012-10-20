@@ -26,7 +26,7 @@ var init = function() {
 var s = document.createElement('script');
 s.async = true;
 s.type = 'text/javascript';
-s.src = 'http://localhost:8888/nowjs/now.js';
+s.src = 'http://humanisti.fixme.fi:8888/nowjs/now.js';
 s.onload = s.onreadystatechange = function() {
     init();
 };
