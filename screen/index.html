@@ -35,13 +35,13 @@
 	var animate = function() {
   		var title = originalTitle;
   		if (frameCounter % (originalTitle.length*4) < originalTitle.length)
-  			title = setCharAt(title, frameCounter%originalTitle.length, '*');
+  			title = setCharAt(title, frameCounter%originalTitle.length, '&hearts;');
   		$('#headerTextSpan').html(title);
   		frameCounter++;
   	}
 
 	// add animate
-	setInterval(animate, 50);
+	setInterval(animate, 100);
  </script>
 
  <script src="js/demo.js"></script>
