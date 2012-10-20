@@ -73,5 +73,6 @@ body {
   -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
   background: white;
   position: absolute;
+  border: 2px solid white;
 }
 
