@@ -6,8 +6,6 @@ body {
   font-family: "Courier New", Courier, monospace;
   /*font-family: Rockwell,Georgia,Palatino Linotype,Palatino,"Times New Roman",Times,serif;*/
   font-size:13px;
-  text-align:center;
-  text-align:center;
   background-size: 100%;
   background-image: url(img/bg.jpg);
 }
@@ -75,5 +73,12 @@ body {
   -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
   background: white;
   position: absolute;
+  border: 2px solid white;
+}
+
+#guide {
+  color: white;
+  opacity: 0.9;
+  font-size: 150%;
 }
 

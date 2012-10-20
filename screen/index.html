@@ -5,6 +5,7 @@
  <title>Shake your ass!</title>
  <link rel="stylesheet" href="ass.css">
  <script src="lib/jquery.min.js"></script>
+ <script src="lib/jquery-ui.custom.min.js"></script>
 </head>
 <body>
 
@@ -14,10 +15,48 @@
   </div>
  </div>
 
-<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<a href="https://github.com/mnelimar/shake-your-ass"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+ <div id='guide'>
+ 	<ol>
+ 		<li>Grab a smart phone or a laptop</li>
+ 		<li>Head to demo.mante.li</li>
+ 		<li>Shake it baby</li>
+ 	</ol>
+ </div>
+
+ <script type="text/javascript">
+	var frameCounter = 0;
+	var originalTitle = 'SHAKE YOUR ASS!';
+
+	function setCharAt(str,index,chr) {
+ 		if (index > str.length-1) return str;
+ 		return str.substr(0,index) + chr + str.substr(index+1);
+	}
+
+
+	var animate = function() {
+  		var title = originalTitle;
+  		if (frameCounter % (originalTitle.length*4) < originalTitle.length)
+  			title = setCharAt(title, frameCounter%originalTitle.length, '&hearts;');
+  		$('#headerTextSpan').html(title);
+  		frameCounter++;
+  	}
+
+	// add animate
+	setInterval(animate, 100);
+ </script>
 
  <script src="js/demo.js"></script>
  <script src="js/now.js"></script>
+
+
+ <!-- background noice -->
+ <audio id='sound-bg' src='./audio/background.mp3' loop autoplay/>
+ <script type="text/javascript">
+ 	sound_bg = document.getElementById('sound-bg');
+ 	sound_bg.volume=0.25;
+ </script>
 
 </body>
 </html>
