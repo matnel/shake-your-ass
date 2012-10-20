@@ -1,21 +1,24 @@
 var init = function() {
 
+	var bubbles = {};
+
 	// one user moved
 	now.move = function( data ) {
-		console.log('OK');
+		var b = bubbles[ data.user.clientId ];
+		b.move( data );
 	}
 
 
 	// user has been removed from the system
 	now.removeUser = function( user ) {
-		console.log( 'gone' );
+		// delete item
+		bubbles[ data.user.clientId ];
 	}
 
 	now.addUser = function( user ) {
-		console.log('haz');
+		console.log('Daa');
+		bubbles[ user.clientId  ] = new Bubble();
 	}
-
-	// now.screen(); // this must be called, but at later stage
 
 }
 
@@ -26,6 +29,11 @@ s.type = 'text/javascript';
 s.src = 'http://localhost:8888/nowjs/now.js';
 s.onload = s.onreadystatechange = function() {
     init();
-  };
+};
 var head = document.getElementsByTagName('head')[0];
 head.appendChild(s);
+
+// add the connect button
+var b = $('<button>', { html : 'Connect to server', css : { position: 'absolute', top: '10px', left: '10px'  } } );
+b.click( function() { now.screen(); b.remove(); } );
+b.appendTo('body')
