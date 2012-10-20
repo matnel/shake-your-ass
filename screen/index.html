@@ -14,6 +14,28 @@
   </div>
  </div>
 
+ <script type="text/javascript">
+	var frameCounter = 0;
+	var originalTitle = 'SHAKE YOUR ASS!';
+
+	function setCharAt(str,index,chr) {
+ 		if (index > str.length-1) return str;
+ 		return str.substr(0,index) + chr + str.substr(index+1);
+	}
+
+
+	var animate = function() {
+  		var title = originalTitle;
+  		if (frameCounter % (originalTitle.length*4) < originalTitle.length)
+  			title = setCharAt(title, frameCounter%originalTitle.length, '*');
+  		$('#headerTextSpan').html(title);
+  		frameCounter++;
+  	}
+
+	// add animate
+	setInterval(animate, 50);
+ </script>
+
  <script src="js/demo.js"></script>
  <script src="js/now.js"></script>
 
