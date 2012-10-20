@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<div id='max' class='record' style='background: pink;'></div>
+<div id='max' class='record' style='background: brown;'></div>
 <div id='current' class='record' style='background: green;'></div>
 
 <audio  id='audio-alert' src='./audio/alert.mp3' />
@@ -78,9 +78,11 @@
 		}
 
 		if( sound ) {
-			document.getElementById('audio-alert').play();
+			// document.getElementById('audio-alert').play();
 		}
 	}
+
+	var previous = { x : {}, y : { delta : 0 } };
 
 	function data() {
 		var data = { x : {}, y : {} };
@@ -107,6 +109,15 @@
 
 		now.motion( data );
 		display( data );
+
+		// trigger audio if values are increasing
+		if( previous.y.delta < data.y.delta ) {
+			console.log('ok!');
+			document.getElementById('audio-alert').play();
+		}
+
+
+		previous = data;
 
 		return data;
 	}
