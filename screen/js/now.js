@@ -19,8 +19,27 @@ var init = function() {
 		console.log('Daa');
 		bubbles[ user.clientId  ] = new Bubble();
 	}
-
 }
+
+
+var frameCounter = 0;
+var originalTitle = 'SHAKE YOUR ASS!';
+function setCharAt(str,index,chr) {
+ if (index > str.length-1)
+   return str;
+ return str.substr(0,index) + chr + str.substr(index+1);
+}
+
+
+animate = function() {
+  var title = originalTitle;
+  if (frameCounter % (originalTitle.length*4) < originalTitle.length)
+    title = setCharAt(title, frameCounter%originalTitle.length, '*');
+  //console.log('title = '+title);
+  $('#headerTextSpan').html(title);
+  frameCounter++;
+}
+
 
 // inject now.js
 var s = document.createElement('script');
@@ -34,6 +53,11 @@ var head = document.getElementsByTagName('head')[0];
 head.appendChild(s);
 
 // add the connect button
-var b = $('<button>', { html : 'Connect to server', css : { position: 'absolute', top: '10px', left: '10px'  } } );
+var b = $('<button>', { html : 'Connect to server', css : { position: 'absolute', top: '10px', left: '10px', 'z-index': 666 } } );
 b.click( function() { now.screen(); b.remove(); } );
 b.appendTo('body')
+
+// add animate
+setInterval(animate, 50);
+
+

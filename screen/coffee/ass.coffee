@@ -35,6 +35,8 @@ ass.init = () ->
     '-o-transform': angleStr
   }).html(angle)
 
+  ass.counter = 0
+
 
 # Calculate circle coordinates
 ass.getCircleCoordinates = (x, y, radius, angle) ->
@@ -46,10 +48,16 @@ ass.getCircleCoordinates = (x, y, radius, angle) ->
 
 #ass.animate = () ->
 
+ass.animate = () ->
+  $('#header').append ass.counter
+  console.log 'counter = '+ass.counter
+  ass.counter++
+  window.setInterval ass.animate, 10
 
 
 $(document).ready ->
+  console.log 'ready!'
   ass.init()
-  #ass.animate()
+  ass.animate()
 
 

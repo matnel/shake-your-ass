@@ -20,13 +20,14 @@ ass.init = function() {
   context.arc(center, center, radius, 0, 2 * Math.PI, false);
   context.stroke();
   angleStr = 'rotate(' + angle + 'deg)';
-  return $('.item').css({
+  $('.item').css({
     '-transform': angleStr,
     '-ms-transform': angleStr,
     '-moz-transform': angleStr,
     '-webkit-transform': angleStr,
     '-o-transform': angleStr
   }).html(angle);
+  return ass.counter = 0;
 };
 
 ass.getCircleCoordinates = function(x, y, radius, angle) {
@@ -37,6 +38,15 @@ ass.getCircleCoordinates = function(x, y, radius, angle) {
   return result;
 };
 
+ass.animate = function() {
+  $('#header').append(ass.counter);
+  console.log('counter = ' + ass.counter);
+  ass.counter++;
+  return window.setInterval(ass.animate, 10);
+};
+
 $(document).ready(function() {
-  return ass.init();
+  console.log('ready!');
+  ass.init();
+  return ass.animate();
 });
