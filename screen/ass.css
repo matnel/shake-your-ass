@@ -13,6 +13,9 @@ body {
 }
 
 #header {
+  padding: 10px;
+  margin: 0px auto;
+/*  width: 400px;*/
   position: absolute;
   top: 0px;
   width: 100%;
@@ -35,6 +38,7 @@ body {
   color:#ffffff;
   font-size: 200%;
   font-weight: bold;
+  text-shadow: 1px 1px 1px #000;
 /*  opacity: 1;*/
 }
 
@@ -67,9 +71,9 @@ body {
 
 
 .bubble {
-        border-radius: 5px;
-        -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
-        background: white;
-        position: absolute;
+  border-radius: 5px;
+  -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
+  background: white;
+  position: absolute;
 }
 
