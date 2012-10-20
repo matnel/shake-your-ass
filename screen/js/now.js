@@ -36,5 +36,5 @@ head.appendChild(s);
 // add the connect button
 var b = $('<button>', { html : 'Connect to server', css : { position: 'absolute', top: '10px', left: '10px', 'z-index': 666 } } );
 b.click( function() { now.screen(); b.remove(); } );
-b.appendTo('body')
+b.appendTo('body');
 
