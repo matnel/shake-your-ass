@@ -1,13 +1,18 @@
-var bubbles = {};
+var _HEIGHT = $(window).height();
+var _WIDTH = $(window).width();
 
 function Bubble() {
 	
-	this._d = $('<div>', { class : 'bubble', style: 'background: white;', html : 'Daa' } );
-	$('body').append( this._d );
+	this.element = $('<div>', { class : 'bubble', html : 'Daa' } );
+
+	this.element.css( { left : Math.random() * _WIDTH , top : Math.random() * _HEIGHT } );
+
+	$('body').append( this.element );
 
 }
 Bubble.prototype.move = function( data ) {
 	var x = data.x.delta + 10;
 	var y = data.y.delta + 10;
-	this._d.css( { width : x, height: y } );
+
+	this.element.css( { 'width' : x, 'height' : y, 'margin-top' : -y / 2 -5, 'margin-left' : -x / 2 - 5 } );
 }
