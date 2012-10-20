@@ -1,22 +1,18 @@
 
 body {
   background-color: #000000;
+  color: white;
   margin: 0px;
   overflow: hidden;
   font-family: Rockwell,Georgia,Palatino Linotype,Palatino,"Times New Roman",Times,serif;
   font-size:13px;
-  text-align:center;
-  /*font-weight: bold;*/
-  text-align:center;
 }
 
 #header {
-  color:#fff;
-  position: absolute;
-  top: 0px; width: 100%;
   padding: 10px;
-  z-index:100;
   font-size: 200%;
+  margin: 0px auto;
+  width: 400px;
 }
 
 #footer {
@@ -48,9 +44,9 @@ body {
 
 
 .bubble {
-        border-radius: 5px;
-        -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
-        background: white;
-        position: absolute;
+  border-radius: 5px;
+  -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
+  background: white;
+  position: absolute;
 }
 
