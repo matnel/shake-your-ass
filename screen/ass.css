@@ -50,5 +50,7 @@ body {
 .bubble {
         border-radius: 5px;
         -webkit-transition: width 2s, height 2s, margin 2s, -webkit-transform 2s;
+        background: white;
+        position: absolute;
 }
 
