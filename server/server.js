@@ -18,6 +18,7 @@ everyone.now.motion = function( data ) {
 
 // events
 nowjs.on('connect', function () {
+    console.log('Got')
     screen.now.addUser( this.user );
 } );
 
