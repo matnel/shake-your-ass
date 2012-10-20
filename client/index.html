@@ -26,6 +26,8 @@
 <div id='max' class='record' style='background: pink;'></div>
 <div id='current' class='record' style='background: green;'></div>
 
+<audio  id='audio-alert' src='./audio/alert.mp3' />
+
 <script type="text/javascript">
 
 	var meter = new Accelerometer();
@@ -62,14 +64,22 @@
 		c.css('width', x + 10 );
 		c.css('margin-left', -x / 2 - 5);
 
+		var sound = false;
+
 		var c = $('#max');
 		if( y > c.height() ) {
 			c.css('height', y + 10 );
 			c.css('margin-top', -y / 2 -5);
+			sound = true;
 		}
 		if( x > c.width() ) {
 			c.css('width', x + 10 );
 			c.css('margin-left', -x / 2 - 5);
+			sound = true;
+		}
+
+		if( sound ) {
+			document.getElementById('audio-alert').play();
 		}
 	}
 
