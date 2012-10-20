@@ -76,3 +76,9 @@ body {
   border: 2px solid white;
 }
 
+#guide {
+  color: white;
+  opacity: 0.9;
+  font-size: 150%;
+}
+
