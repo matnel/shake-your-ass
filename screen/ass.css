@@ -6,8 +6,6 @@ body {
   font-family: "Courier New", Courier, monospace;
   /*font-family: Rockwell,Georgia,Palatino Linotype,Palatino,"Times New Roman",Times,serif;*/
   font-size:13px;
-  text-align:center;
-  text-align:center;
   background-size: 100%;
   background-image: url(img/bg.jpg);
 }
