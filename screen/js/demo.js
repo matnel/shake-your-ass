@@ -21,3 +21,7 @@ Bubble.prototype.move = function( data ) {
 
 	this.element.css( { 'width' : x, 'height' : y, 'margin-top' : -y / 2 -5, 'margin-left' : -x / 2 - 5 } );
 }
+
+Bubble.prototype.remove = function() {
+	this.element.fadeOut(5000);
+}

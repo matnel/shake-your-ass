@@ -11,8 +11,9 @@ var init = function() {
 
 	// user has been removed from the system
 	now.removeUser = function( user ) {
+		console.log('Remove');
 		// delete item
-		bubbles[ data.user.clientId ];
+		bubbles[ user.clientId ].remove();
 	}
 
 	now.addUser = function( user ) {
@@ -35,5 +36,5 @@ head.appendChild(s);
 
 // add the connect button
 var b = $('<button>', { html : 'Connect to server', css : { position: 'absolute', top: '10px', left: '10px'  } } );
-b.click( function() { now.screen(); b.remove(); } );
+b.click( function() { console.log('jee'); now.screen(); b.remove(); } );
 b.appendTo('body')
